@@ -1,0 +1,34 @@
+
+package utilities;
+
+/**
+ *
+ * @author Lisandro S. Villas Bôas
+ * Class to complete a |String with zeros to left or right
+ */
+public class CompleteWithZeros {
+
+    //Left
+    public static String lpad(String valueToPad, String filler, int size) {
+        while (valueToPad.length() < size) {
+            valueToPad = filler + valueToPad;
+        }
+        return valueToPad;
+    }
+    //Right
+    public static String rpad(String valueToPad, String filler, int size) {
+        while (valueToPad.length() < size) {
+            valueToPad = valueToPad + filler;
+        }
+        return valueToPad;
+    }
+    
+    //Left
+    private String completeZerosLeft(String filialNumber) {
+		StringBuilder filial = new StringBuilder(filialNumber);
+		while (filial.length() < 3) {
+			filial.insert(0,  "0");
+		}
+		return filial.toString();
+	}
+}

@@ -1,0 +1,30 @@
+package utilities;
+
+import java.text.DecimalFormat;
+import java.text.DecimalFormatSymbols;
+import java.util.Locale;
+
+public class QQDecimalFormat {
+
+    private final static DecimalFormatSymbols dfs = new DecimalFormatSymbols(new Locale("pt", "BR"));
+
+    private final static DecimalFormat moneyf = new DecimalFormat("#,##0.00", dfs);
+
+    private final static DecimalFormat taxf = new DecimalFormat("#,###0.000", dfs);
+
+    public final static String getMoneyFormat(Double value) {
+        if (value != null) {
+            return moneyf.format(value);
+        }
+        return "";
+    }
+
+    
+
+    public final static String getTaxFormat(Double value) {
+        if (value != null) {
+            return taxf.format(value);
+        }
+        return "";
+    }
+}

@@ -1,0 +1,61 @@
+package utilities;
+
+import java.math.BigDecimal;
+import java.math.RoundingMode;
+
+/**
+ *
+ * @author Lisandro Villas Bôas
+ */
+public class CalculatePorcentagem {
+
+    public static final BigDecimal ONE_HUNDRED = new BigDecimal(100);
+
+    
+    
+    /**
+     * v1 é qual porcentagem de v2? Ex. 10 é qual porcentagem de 50 = 20% (v1/v2) * 100
+     *
+     * @param v1 Valor em R$
+     * @param v2 Valor em R$
+     * @return
+     * @throws ArithmeticException
+     */
+    public static BigDecimal calcPercentage1(Integer v1, Integer v2) throws ArithmeticException {
+        Double d1 = v1.doubleValue();
+        Double d2 = v2.doubleValue();
+        if (v1 == 0) {
+            return BigDecimal.ZERO;
+        } else {
+            BigDecimal calcResult = BigDecimal.valueOf(d1 / d2).multiply(ONE_HUNDRED).setScale(2, RoundingMode.HALF_DOWN);
+            return calcResult;
+        }
+    }
+
+    /**
+     * v1 é qual porcentagem de v2? Ex. 10 é qual porcentagem de 50
+     *
+     * @param v1 Valor em R$
+     * @param v2 Valor em R$
+     * @return
+     * @throws ArithmeticException
+     */
+    public static Double calcPercentage4(Double v1, Double v2) throws ArithmeticException {
+        BigDecimal dd = BigDecimal.valueOf(v1 / v2).multiply(ONE_HUNDRED).setScale(2, RoundingMode.HALF_UP);
+        return dd.doubleValue();
+    }
+
+    /**
+     * Quanto e v1% de v2 ?
+     *
+     * @param v1 Porcentagem %
+     * @param v2 Valor em R$
+     * @return
+     * @throws ArithmeticException
+     */
+    public static Double calcPercentage5(Double v1, Double v2) throws ArithmeticException {
+        BigDecimal dd = BigDecimal.valueOf(v1 * v2).divide(ONE_HUNDRED).setScale(4, RoundingMode.HALF_DOWN);
+        return dd.doubleValue();
+    }
+
+}

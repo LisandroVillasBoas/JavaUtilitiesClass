@@ -1,0 +1,21 @@
+package utilities;
+
+import java.text.SimpleDateFormat;
+import java.util.Date;
+
+/**
+ *
+ * @author 102163
+ */
+public class MyDateFormatter {
+    
+    /**
+     * Retorna String com data formatada
+     * @param dt  data no formato Date
+     * @return 
+     */
+    public static String getMyFormattedDate(Date dt) {
+        return new SimpleDateFormat("dd/MM/yyyy").format(dt);
+    }
+    
+}
